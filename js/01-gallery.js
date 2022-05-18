@@ -30,14 +30,17 @@ function creatGalleryItem(galleryItems){
 
 function onGalleryCollecClick(evt){
     evt.preventDefault();
-    const galleryTargetEl = evt.target.classList.value;
-    if(galleryTargetEl !== "gallery__image"){
+    const galleryTargetEl = evt.target.nodeName;
+    if(galleryTargetEl !== "IMG"){
         return;
     }
    const newGalleryImage = evt.target.attributes["data-source"].value;    
-   const instance = basicLightbox.create(`<img src="${newGalleryImage}"
-      />`)
-instance.show();
+   const htmlImg = `<img src="${newGalleryImage}"
+   />`
+   const instance = basicLightbox.create(htmlImg, {
+      onShow: (instance) => console.log('onShow', instance),
+      onClose: (instance) => console.log('onClose', instance)})
+      instance.show((instance) => console.log('finished show()', instance))
 
 galleryCollec.addEventListener("keydown", onKeyClose);
 function onKeyClose(evt){

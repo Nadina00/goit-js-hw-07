@@ -19,14 +19,15 @@ function creatGalleryItem(galleryItems){
 
 function onGalleryCollecClick(evt){
     evt.preventDefault();
-    const galleryTargetEl = evt.target.classList.value;
+    const galleryTargetEl = evt.target.nodeName;
     console.log(galleryTargetEl);
-    if(galleryTargetEl !== "gallery__image"){
+    if(galleryTargetEl !== "IMG"){
         return;
     }
-    new SimpleLightbox('.gallery a', {
-        captions: true,
-        captionsData: 'alt',
-        captionDelay: 250,
-      });
+    
     }
+    new SimpleLightbox('.gallery a', {
+      captions: true,
+      captionsData: 'alt',
+      captionDelay: 250,
+    });
