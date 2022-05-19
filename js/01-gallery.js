@@ -37,9 +37,7 @@ function onGalleryCollecClick(evt){
    const newGalleryImage = evt.target.attributes["data-source"].value;    
    const htmlImg = `<img src="${newGalleryImage}"
    />`
-   const instance = basicLightbox.create(htmlImg, {
-      onShow: (instance) => console.log('onShow', instance),
-      onClose: (instance) => console.log('onClose', instance)})
+   const instance = basicLightbox.create(htmlImg)
       instance.show((instance) => console.log('finished show()', instance))
 
 galleryCollec.addEventListener("keydown", onKeyClose);
